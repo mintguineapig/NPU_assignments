@@ -1,4 +1,4 @@
-# NPU assignment
+# NPU assignments
 
 ## 1. 4목 만들기
 
