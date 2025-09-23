@@ -1,1 +1,1 @@
-# NPU2_panorama-carplate
+# NPU assignment
