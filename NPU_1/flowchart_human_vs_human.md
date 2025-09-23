@@ -1,5 +1,47 @@
 # 4목 게임 플로우차트 (사람 vs 사람)
 
+
+## Human vs Human Game - Function Calling Flow
+
+```mermaid
+flowchart TD
+    A[main] --> B[show_menu]
+    B --> C[get_user_choice]
+    C --> D{choice == '1'?}
+    D -->|Yes| E[play_human_vs_human]
+    D -->|No| F[다른 선택 처리]
+    
+    E --> G[Game.__init__]
+    G --> H[game.play]
+    
+    H --> I[board.display_board]
+    I --> J[get_player_input]
+    J --> K{input == 'quit'?}
+    K -->|Yes| L[게임 종료]
+    K -->|No| M[input 파싱]
+    M --> N[board.is_valid_move]
+    N --> O{valid?}
+    O -->|No| P[오류 메시지]
+    P --> J
+    O -->|Yes| Q[make_move]
+    Q --> R[board.place_stone]
+    R --> S[board.display_board]
+    S --> T[board.check_winner]
+    T --> U{winner?}
+    U -->|No| V[플레이어 변경]
+    V --> J
+    U -->|Yes| W[승자 발표]
+    W --> X{다시 게임?}
+    X -->|Yes| Y[game.reset_game]
+    Y --> H
+    X -->|No| Z[play_human_vs_human 종료]
+    Z --> AA[main으로 복귀]
+    AA --> B
+```
+
+
+
+
 ## 1. 메인 함수 플로우
 
 ```
