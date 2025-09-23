@@ -2,7 +2,6 @@
 4목 게임의 AI 플레이어 클래스
 미니맥스 알고리즘과 알파-베타 가지치기를 사용하여 최적의 수를 찾습니다.
 """
-
 import math
 import random
 from board import Board
